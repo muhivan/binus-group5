@@ -4,7 +4,7 @@
 			<div class="row">
 				<div class="col-md-6 col-sm-6">
 					<div class="fh5co-footer-widget">
-								<h2 class="fh5co-footer-logo">Toba Lake</h2>
+								<h2 class="fh5co-footer-logo">Binus Group 5 <adib, akhsan, alviandra, ivan, rizki></h2>
 						<p></p>
 					</div>
 					
@@ -12,7 +12,7 @@
 					
 			<div class="row fh5co-row-padded fh5co-copyright">
 				<div class="col-md-12">
-					<p>Copy Right @ddysmhz 2023 </p>
+					<p>Copy Right @binus_group5 </p>
 				</div>
 			</div>
 		</div>
