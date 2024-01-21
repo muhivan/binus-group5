@@ -17,19 +17,30 @@
                     </ul>
 			            
                         <?php
-                $total = 0;
-                if (isset($_SESSION['items'])) {
-                    foreach ($_SESSION['items'] as $key => $val) {
-                        $query = mysqli_query($koneksi, "select * from produk where id_produk = '$key'");
-                        $data = mysqli_fetch_array($query);
-                        $jumlah_harga = $data['harga'] * $val;
-                        $total += $jumlah_harga;
-                        $produk = $data['id_produk'];
-                        $jumlah = $val;
-                        if (isset($_SESSION['username'])) {
-                            $id_user = $_SESSION['id_users'];
-                            $nama = $_SESSION['nama'];
-                        }
+                		$total = 0;
+
+						// Check if the session variable 'items' is set
+						if (isset($_SESSION['items'])) {
+						// Loop through the 'items' array
+						foreach ($_SESSION['items'] as $key => $val) {
+						// Query the database for the product details
+						$query = mysqli_query($koneksi, "select * from produk where id_produk = '$key'");
+						$data = mysqli_fetch_array($query);
+				
+						// Calculate the subtotal for this product
+						$jumlah_harga = $data['harga'] * $val;
+						$total += $jumlah_harga;
+				
+						// Set the product and quantity variables
+						$produk = $data['id_produk'];
+						$jumlah = $val;
+				
+						// Check if the session variable 'username' is set
+						if (isset($_SESSION['username'])) {
+							$id_user = $_SESSION['id_users'];
+							$nama = $_SESSION['nama'];
+						}
+						
                         ?>
 			 <div class="cart-header">
                              <a onclick="if(confirm('Apakah anda yakin ingin menghapus pesanan ini ??')){ 
@@ -39,7 +50,7 @@
                                                     <img src="admin/gambar/<?=$data['gambar']?>" class="img-responsive" alt="" style="height: 190px; width: 170px;"/>
 						</div>
 					   <div class="cart-item-info">
-                                               <h3><a href="detail_produk.php?id=<?=$data['id_barang']?>"><h3><?=$data['nama']?></h3></a><span><h4>
+                                               <h3><a href="detail_produk.php?id=<?= $p['id_produk']?>"><h3><?=$data['nama']?></h3></a><span><h4>
                                                	<?=$data['deskripsi']?></h4></span></h3>
 						<ul class="qty">
 							<li><h3>Jumlah : <?=$jumlah?></h3></li>

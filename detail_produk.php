@@ -3,44 +3,56 @@
     $id_produk = $_GET['id'];
     $produk = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk = '$id_produk'") or die(mysqli_error($koneksi));
     $p = mysqli_fetch_array($produk);
+
+    // Contoh variabel $array yang harus diperiksa sebelum diakses
+if ($array !== null && isset($array[$offset])) {
+    // Lakukan sesuatu dengan $array[$offset]
+} else {
+    // Tindakan darurat jika nilai null atau offset tidak ada
+}
 ?>
 <div class="single_top">
-	 <div class="container">
-         <div class="single_grid">
-              <nav arial-label="breadcrumb" style="margin-top: 30px;">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.php" style="color: #007bff;"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-                        <li class="breadcrumb-item"><a href="produk.php" style="color: #007bff;">Produk</a></li>
-                    </ol>
-                </nav>
-                
-             <div class="grid images_3_of_2">
-                 <img src="admin/gambar/<?=$p['gambar']?>" width="300" height="270"/>
-                 
-						 <div class="clearfix"></div>
-				  </div> 
-				<div class="desc1 span_1_of_3">
-                    <h1><?php echo $p['nama']?></h1>
-                    <p>Deskripsi : <?=$p['deskripsi']?></p>
-                     <form action="tambahkanbarang.php?act=add&amp;barang_id=<?php echo $p['id_produk'];?>&amp;ref=keranjang.php?kd=<?php echo $p['id_produk'];?>" method="POST">
-                     <div class="simpleCart_shelfItem">
+    <div class="container">
+        <div class="single_grid">
+            <nav aria-label="breadcrumb" style="margin-top: 30px;">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.php" style="color: #007bff;"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                    <li class="breadcrumb-item"><a href="produk.php" style="color: #007bff;">Produk</a></li>
+                </ol>
+            </nav>
+
+            <div class="grid images_3_of_2">
+                <img src="admin/gambar/<?=$p['gambar']?>" width="300" height="270" alt="<?=$p['nama']?>">
+
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="desc1 span_1_of_3">
+                <h1><?php echo htmlspecialchars($p['nama'])?></h1>
+                <p>Deskripsi : <?=htmlspecialchars($p['deskripsi'])?></p>
+
+                <form action="tambahkanbarang.php?act=add&barang_id=<?php echo htmlspecialchars($p['id_produk']);?>&ref=keranjang.php?kd=<?php echo htmlspecialchars($p['id_produk']);?>" method="POST" enctype="multipart/form-data">
+                    <div class="simpleCart_shelfItem">
                         <div class="price_single">
-                                            <div class="head"><h3>Rp. <?= number_format($p['harga'])?>,-</h3></div>
-                           <div class="clearfix"></div>
-                         </div>
-                             <table class="table">
+                            <div class="head"><h3>Rp. <?= number_format($p['harga'])?>,-</h3></div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <table class="table">
                             <tr>
                                 <td width="40">Jumlah</td>
-                                <td><input type="number" name="jumlah" class="form-control input-sm" min="1" max="<?php echo $data['qty']; ?>" style="width: 100px;" value="1"></td>
+                                <td><input type="number" name="jumlah" class="form-control input-sm" min="1" max="<?php echo htmlspecialchars($data['qty']); ?>" style="width: 100px;" value="1" required></td>
                             </tr>
                         </table>
-                            <button value="Tambahkan ke Keranjang"><span class="glyphicon glyphicon-shopping-cart"></span> Tambahkan kekeranjang</button>
-                     </div>
-                     </form>
-                </div>
-                <div class="clearfix"></div>
-               </div>
-              </div>
+
+                        <button type="submit" name="submit" value="Tambahkan ke Keranjang"><span class="glyphicon glyphicon-shopping-cart"></span> Tambahkan kekeranjang</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
 </div>
 
 
