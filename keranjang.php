@@ -39,8 +39,8 @@
                                                     <img src="admin/gambar/<?=$data['gambar']?>" class="img-responsive" alt="" style="height: 190px; width: 170px;"/>
 						</div>
 					   <div class="cart-item-info">
-					   <h3><?= $data['nama'] ?></h3></a></h3>
-<span><h4><?= $data['deskripsi'] ?></h4></span>
+                                               <h3><a href="detail_produk.php?id=<?=$data['id_barang']?>"><h3><?=$data['nama']?></h3></a><span><h4>
+                                               	<?=$data['deskripsi']?></h4></span></h3>
 						<ul class="qty">
 							<li><h3>Jumlah : <?=$jumlah?></h3></li>
                                                         <li><a href="tambahkanbarang.php?act=min&amp;barang_id=<?php echo $key; ?>&amp;ref=keranjang.php" class='btn btn-danger'><span class="glyphicon glyphicon-minus"></span> </a></li>
