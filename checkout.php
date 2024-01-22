@@ -57,7 +57,7 @@
 				if (!$sql) {
 					echo 'Gagal Checkout!';
             	}else{
-            		echo 'Total biaya untuk pembelian Produk adalah Rp. '.$total.',- dan biaya bisa di kirimkan melalui Rekening Bank BNI cabang Balige dengan nomor rekening 123-234-56347-8 atas nama Pak Diva Ulos.<br>';
+            		echo 'Total biaya untuk pembelian Produk adalah Rp. '.$total.',- dan biaya bisa di kirimkan melalui Rekening Bank BNI dengan nomor rekening 123-234-56347-8 atas nama Admin Binus Group 5 Rizki Kurniawan.<br>';
 					echo 'Dan barang akan kami kirim ke alamat di bawah ini:<br><br>';
 					echo 'Nama Lengkap : '.$_SESSION['nama'].'<br>';
 					echo 'Email&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : '.$user_id['email'].'<br>';

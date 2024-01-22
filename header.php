@@ -14,7 +14,7 @@ if (isset($_GET['out'])) {
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Toba &mdash; Lake</title>
+	<title>Binus &mdash; Group 5</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
@@ -67,7 +67,7 @@ if (isset($_GET['out'])) {
 				<div class="navbar-header"> 
 				<!-- Mobile Toggle Menu Button -->
 				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-				<a class="navbar-brand" href="index.php"><img src="images/log.png" alt="logo" style="width: 145px; margin-left: -20px; margin-top: -5px;"></a></a>
+				<a class="navbar-brand" href="index.php"><img src="images/log.png" alt="logo" style="width: 145px; margin-left: -20px; margin-top: -30px;"></a></a>
 				</div>
 				<div id="fh5co-navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">        

@@ -11,7 +11,7 @@
 <div class="container">
      <div class="single_grid" style="margin-top: 25px;">
              <ul class="back">
-                    <li style="font-size: 28px; margin-left: 0px; color: #000000;"><i class="back_arrow"></i>Selamat Datang di Toba Lake</a></li>
+                    <li style="font-size: 28px; margin-left: 0px; color: #000000;"><i class="back_arrow"></i>Selamat Datang di Toko Binus Group 5</a></li>
             </ul>
     </div>
 </div>

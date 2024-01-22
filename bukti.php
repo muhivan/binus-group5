@@ -26,7 +26,7 @@
             <div class="table-responsive">
 	            <div class="title"><h3 style="margin-top: 70px;">Form Bukti Pembayaran</h3></div>
 	        	<div class="hero-unit">
-	        	<div class="unit">Silahkan Transfer kerekening ini 123-456-789 Bank BNI a/n Daniel Lumbantobing</div>
+	        	<div class="unit">Silahkan Transfer kerekening ini 123-456-789 Bank BNI a/n PIC Binus Group 5</div>
 	           	<div class="unit">Silahkan mengupload bukti pembayaran sesuai dengan total belanja Anda! </div>
 	        
 

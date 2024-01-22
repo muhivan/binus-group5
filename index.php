@@ -21,13 +21,13 @@
         <div class="item active">
           <img  style="width: 100%; height: 500px;" src="img/logo2.png" alt="gambar">
           <div class="carousel-caption">
-          <h1>Big Sale</h1>
+          <h1>adib, akhsan, alviandra, ivan, rizki</h1>
           </div>
         </div>
         <div class="item">
           <img style="width: 100%; height: 500px;" src="img/logo2.png" alt="gambar">
           <div class="carousel-caption">
-           <h1>Group 3</h1>
+           <h1>Binus Group 5</h1>
           </div>
         </div>
         <div class="item">
