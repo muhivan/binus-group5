@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2024 at 10:12 AM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.8
+-- Generation Time: Jan 22, 2024 at 12:36 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,15 +31,16 @@ CREATE TABLE `artikel` (
   `id_artikel` int(11) NOT NULL,
   `judul` varchar(100) NOT NULL,
   `deskripsi` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `artikel`
 --
 
 INSERT INTO `artikel` (`id_artikel`, `judul`, `deskripsi`) VALUES
-(1, 'Apa itu ulos?', 'Ulos atau sering juga disebut kain ulos adalah salah satu busana khas Indonesia. Ulos secara turun temurun dikembangkan oleh masyarakat Batak, Sumatera utara. Dari bahasa asalnya, ulos berarti kain. Cara membuat ulos serupa dengan cara membuat songket khas Palembang, yaitu menggunakan alat tenun bukan mesin.  Warna dominan pada ulos adalah merah, hitam, dan putih yang dihiasi oleh ragam tenunan dari benang emas atau perak. Mulanya ulos dikenakan di dalam bentuk selendang atau sarung saja, kerap digunakan pada perhelatan resmi atau upacara adat Batak, namun kini banyak dijumpai di dalam bentuk produk sovenir, sarung bantal, ikat pinggang, tas, pakaian, alas meja, dasi, dompet, dan gorden.  Ulos juga kadang-kadang diberikan kepada sang ibu yang sedang mengandung supaya mempermudah lahirnya sang bayi ke dunia dan untuk melindungi ibu dari segala mara bahaya yang mengancam saat proses persalinan.'),
-(1, 'Apa itu ulos?', 'Ulos atau sering juga disebut kain ulos adalah salah satu busana khas Indonesia. Ulos secara turun temurun dikembangkan oleh masyarakat Batak, Sumatera utara. Dari bahasa asalnya, ulos berarti kain. Cara membuat ulos serupa dengan cara membuat songket khas Palembang, yaitu menggunakan alat tenun bukan mesin.  Warna dominan pada ulos adalah merah, hitam, dan putih yang dihiasi oleh ragam tenunan dari benang emas atau perak. Mulanya ulos dikenakan di dalam bentuk selendang atau sarung saja, kerap digunakan pada perhelatan resmi atau upacara adat Batak, namun kini banyak dijumpai di dalam bentuk produk sovenir, sarung bantal, ikat pinggang, tas, pakaian, alas meja, dasi, dompet, dan gorden.  Ulos juga kadang-kadang diberikan kepada sang ibu yang sedang mengandung supaya mempermudah lahirnya sang bayi ke dunia dan untuk melindungi ibu dari segala mara bahaya yang mengancam saat proses persalinan.');
+(1, 'KaosMaroon', 'Kaos Maroon dengan bahan dasar 100% Merino Wool, bahan eksklusif yang lembut dan nyaman digunakan sepanjang hari.'),
+(2, 'KemejaLinenWanita.', 'Cool, stylish, fresh model'),
+(3, 'SepatuWanita1', 'Praktis, dapat digunakan dengan mudah di mana saja dan kapan saja');
 
 -- --------------------------------------------------------
 
@@ -50,7 +51,7 @@ INSERT INTO `artikel` (`id_artikel`, `judul`, `deskripsi`) VALUES
 CREATE TABLE `kategori` (
   `id_kategori` int(11) NOT NULL,
   `nama_kategori` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `kategori`
@@ -74,7 +75,22 @@ CREATE TABLE `komentar` (
   `komentar` text NOT NULL,
   `tanggal` date NOT NULL,
   `status` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `komentar`
+--
+
+INSERT INTO `komentar` (`id_komentar`, `id_user`, `id_produk`, `komentar`, `tanggal`, `status`) VALUES
+(1, 4, 8, 'Nice Shirt', '2024-01-21', 'On Progress');
+(1, 3, 4, 'Nice Shirt', '2024-01-21', 'On Progress');
+(1, 5, 7, 'Nice Shirt', '2024-01-21', 'On Progress');
+(1, 2, 3, 'Nice Shirt', '2024-01-21', 'On Progress');
+(1, 6, 2, 'Nice Shirt', '2024-01-21', 'On Progress');
+(1, 3, 6, 'Nice Shirt', '2024-01-21', 'On Progress');
+(1, 4, 1, 'Nice Shirt', '2024-01-21', 'On Progress');
+(1, 2, 10, 'Nice Shirt', '2024-01-21', 'On Progress');
+(1, 5, 9, 'Nice Shirt', '2024-01-21', 'On Progress');
 
 -- --------------------------------------------------------
 
@@ -87,7 +103,7 @@ CREATE TABLE `pembelian` (
   `id_produk` int(11) NOT NULL,
   `harga_beli` int(15) NOT NULL,
   `tanggal` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -106,7 +122,16 @@ CREATE TABLE `penjualan` (
   `bukti_pembayaran` varchar(100) NOT NULL,
   `tanggal` date NOT NULL,
   `status` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `penjualan`
+--
+
+INSERT INTO `penjualan` (`id_pemesanan`, `id_user`, `id_produk`, `jumlah`, `total_harga`, `alamat`, `nohp`, `bukti_pembayaran`, `tanggal`, `status`) VALUES
+(1, 1, 1, 0, 0, '', '', 'pembayaran/Kaos Polos Pria Maroon.jpg', '2024-01-21', 'Belum Dikirim'),
+(2, 4, 7, 1, 950000, 'Indramayu', '082228679181', 'pembayaran/Sneakers Wanita Pink.jpg', '2024-01-22', 'Belum Dikirim'),
+(4, 4, 1, 1, 120000, '', '', 'pembayaran/Kaos Polos Pria Maroon.jpg', '2024-01-22', 'Belum Dikirim');
 
 -- --------------------------------------------------------
 
@@ -122,23 +147,23 @@ CREATE TABLE `produk` (
   `deskripsi` varchar(500) NOT NULL,
   `gambar` varchar(45) NOT NULL,
   `id_kategori` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `produk`
 --
 
 INSERT INTO `produk` (`id_produk`, `nama`, `harga`, `qty`, `deskripsi`, `gambar`, `id_kategori`) VALUES
-(1, 'Kaos Polos Pria Maroon', 120000, 25, 'New', 'KaosMaroon.jpg', 1),
-(23, 'Kaos Polos Pria Hitam', 100000, 20, 'New', 'KaosPolosHitam.jpeg', 1),
-(24, 'Kemeja Kerja Wanita', 250000, 30, 'New', 'KemejaWanita1.jpeg', 1),
-(25, 'Kemeja Linen Wanita', 150000, 15, 'New', 'KemejaLinenWanita.png', 1),
-(26, 'Kaos Polos Pria Hijau', 120000, 26, 'New', 'KaosPriaHijau.jpg', 1),
-(27, 'Kaos Polos Pria Navy', 150000, 20, 'New', 'KaosPriaNavy.png', 1),
-(28, 'Sneakers Wanita Pink', 500000, 25, 'New', 'SepatuWanita1.jpeg', 2),
-(29, 'Kemeja Pendek Pria', 350000, 15, 'New', 'KemejaPendekPria.png', 1),
-(30, 'Blouse Wanita Navy', 250000, 25, 'New', 'BlouseWanitaNavy.png', 1),
-(31, 'Blouse Wanita Pink', 150000, 20, 'New', 'BlouseWanitaPink.png', 1);
+(1, 'Kaos Polos Pria Maroon', 120000, 24, 'New', 'KaosMaroon.jpg', 1),
+(2, 'Kaos Polos Pria Hitam', 100000, 20, 'New', 'KaosPolosHitam.jpeg', 1),
+(3, 'Kemeja Kerja Wanita', 250000, 30, 'New', 'KemejaWanita1.jpeg', 1),
+(4, 'Kemeja Linen Wanita', 150000, 15, 'New', 'KemejaLinenWanita.png', 1),
+(5, 'Kaos Polos Pria Hijau', 120000, 26, 'New', 'KaosPriaHijau.jpg', 1),
+(6, 'Kaos Polos Pria Navy', 150000, 20, 'New', 'KaosPriaNavy.png', 1),
+(7, 'Sneakers Wanita Pink', 500000, 24, 'New', 'SepatuWanita1.jpeg', 2),
+(8, 'Kemeja Pendek Pria', 350000, 15, 'New', 'KemejaPendekPria.png', 1),
+(9, 'Blouse Wanita Navy', 250000, 25, 'New', 'BlouseWanitaNavy.png', 1),
+(10, 'Blouse Wanita Pink', 150000, 20, 'New', 'BlouseWanitaPink.png', 1);
 
 -- --------------------------------------------------------
 
@@ -149,7 +174,7 @@ INSERT INTO `produk` (`id_produk`, `nama`, `harga`, `qty`, `deskripsi`, `gambar`
 CREATE TABLE `role` (
   `id_role` int(3) NOT NULL,
   `role` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `role`
@@ -167,7 +192,7 @@ INSERT INTO `role` (`id_role`, `role`) VALUES
 
 CREATE TABLE `supplier` (
   `id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -184,7 +209,7 @@ CREATE TABLE `user` (
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `role` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `user`
@@ -271,7 +296,7 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pembelian`
@@ -283,7 +308,7 @@ ALTER TABLE `pembelian`
 -- AUTO_INCREMENT for table `penjualan`
 --
 ALTER TABLE `penjualan`
-  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `produk`
