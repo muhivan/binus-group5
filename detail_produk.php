@@ -1,15 +1,8 @@
 <?php
     include 'header.php';
-    $id_produk = $_GET['id'];
+    $id_produk = mysqli_real_escape_string($koneksi, $_GET['id']);
     $produk = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk = '$id_produk'") or die(mysqli_error($koneksi));
     $p = mysqli_fetch_array($produk);
-
-    // Contoh variabel $array yang harus diperiksa sebelum diakses
-if ($array !== null && isset($array[$offset])) {
-    // Lakukan sesuatu dengan $array[$offset]
-} else {
-    // Tindakan darurat jika nilai null atau offset tidak ada
-}
 ?>
 <div class="single_top">
     <div class="container">
